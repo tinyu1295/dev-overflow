@@ -1,0 +1,28 @@
+.nav{
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.navlinks{
+    flex: 1;
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap:2rem
+}
+
+.navlinks li{
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.navlinks li:active,
+.navlinks li:hover{
+    color:#0099ff;
+}
