@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { auth, signOut } from "@/auth";
 import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
 
 const Home = async () => {
   const session = await auth();
@@ -17,28 +18,18 @@ const Home = async () => {
 
   return (
     <main>
-      <h1>Hello world: {session.user.email}</h1>
-      <h1 className="font-space-grotesk">Hello world</h1>
+      {/* <h1>Hello world: {session.user.email}</h1>
+      <h1 className="font-space-grotesk">Hello world</h1> */}
 
       <form
+        className="px-10 pt-[100px]"
         action={async () => {
           "use server";
-          await signOut();
+          await signOut({ redirectTo: ROUTES.SIGN_IN });
         }}
       >
         <Button type="submit">Sign Out</Button>
       </form>
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
     </main>
   );
 };

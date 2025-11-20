@@ -35,7 +35,10 @@ function SocialAuthForm() {
         />
         <span>Log in with GitHub</span>
       </Button>
-      <Button className="background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5">
+      <Button
+        onClick={() => handleProvider("google")}
+        className="background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5"
+      >
         <Image
           src="/icons/google.svg"
           alt="Github logo"
