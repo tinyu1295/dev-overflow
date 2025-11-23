@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const sidebarLinks = [
   {
     imgURL: "/icons/home.svg",
@@ -34,4 +36,18 @@ export const sidebarLinks = [
     route: "/ask-question",
     label: "Ask a question",
   },
+];
+
+export const questions = [
+  { title: "How to center a div in CSS?" },
+  { title: "What is a closure in JavaScript?" },
+  { title: "Explain event delegation in JavaScript?" },
+  { title: "What is the difference between == and === in JavaScript?" },
+];
+
+export const filters = [
+  { label: "Newest", value: "newest" },
+  { label: "Recommended", value: "recommended" },
+  { label: "Frequent", value: "frequent" },
+  { label: "Unanswered", value: "unanswered" },
 ];

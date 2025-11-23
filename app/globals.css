@@ -5,13 +5,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-main{
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+
 
 @theme {
   --color-primary-100: #fff1e6;
@@ -257,7 +251,7 @@ main{
 }
 
 @utility placeholder {
-  @apply placeholder:text-light-400 dark:placeholder:text-light-500;
+   @apply placeholder:text-light-400 dark:placeholder:text-light-500;
 }
 
 @utility invert-colors {

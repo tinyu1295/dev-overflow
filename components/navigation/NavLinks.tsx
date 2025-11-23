@@ -6,10 +6,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SheetClose } from "../ui/sheet";
+import React from "react";
 
-function NavLinks({ isMobileNav = false }: { isMobileNav: boolean }) {
+function NavLinks({ isMobileNav = false }: { isMobileNav?: boolean }) {
   const pathname = usePathname();
   const userId = 1;
+
   return (
     <>
       {sidebarLinks.map((item) => {
@@ -55,7 +57,7 @@ function NavLinks({ isMobileNav = false }: { isMobileNav: boolean }) {
             {LinkComponent}
           </SheetClose>
         ) : (
-          <>{LinkComponent}</>
+          <React.Fragment key={item.label}>{LinkComponent}</React.Fragment>
         );
       })}
     </>

@@ -1,4 +1,9 @@
 import Navbar from "@/components/navigation";
+import LeftSidebar from "@/components/navigation/LeftSidebar";
+import RightSidebar from "@/components/navigation/RightSidebar";
+import { Button } from "@/components/ui/button";
+import ROUTES from "@/constants/routes";
+import Link from "next/link";
 
 function RootLayout({
   children,
@@ -6,9 +11,15 @@ function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="relative background-light850_dark100">
       <Navbar />
-      {children}
+      <div className="flex w-screen">
+        <LeftSidebar />
+        <section className="flex flex-col px-6 pb-6 pt-36 max-md:pb-14 sm:px-14 flex-1 min-h-screen">
+          <div className="mx-auto w-full max-w-5xl">{children}</div>
+        </section>
+        <RightSidebar />
+      </div>
     </main>
   );
 }
