@@ -1,3 +1,6 @@
+declare module "*.css";
+declare module "*.scss";
+
 interface Tag {
   _id: string;
   name: string;
