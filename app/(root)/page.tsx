@@ -5,6 +5,8 @@ import Link from "next/link";
 import LocalSearch from "@/components/search/LocalSearch";
 import HomeFilter from "@/components/filters/HomeFilter";
 import QuestionCard from "@/components/cards/QuestionCard";
+import handleError from "@/lib/handlers/error";
+import { NotFoundError, ValidationError } from "@/lib/http-errors";
 
 const questions = [
   {
@@ -47,11 +49,25 @@ const questions = [
   },
 ];
 
+// error logger
+// const testHandler = () => {
+//   try {
+//     throw new ValidationError({
+//       title: ["required"],
+//       editor: ["add Javascript code in editor."],
+//     });
+//   } catch (err) {
+//     return handleError(err);
+//   }
+// };
+
 const Home = async ({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string }>;
 }) => {
+  // testing error logging
+  // await testHandler();
   const { query = "" } = await searchParams;
   const { filter = "" } = await searchParams;
   console.log(query);

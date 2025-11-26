@@ -1,4 +1,5 @@
 import mongoose, { Mongoose } from "mongoose";
+import logger from "./logger";
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
@@ -25,6 +26,7 @@ if (!cached) {
 
 const connectDB = async (): Promise<Mongoose> => {
   if (cached!.conn) {
+    logger.info("Using cached MongoDB connection");
     return cached!.conn;
   }
 
@@ -37,7 +39,7 @@ const connectDB = async (): Promise<Mongoose> => {
         return result;
       })
       .catch((error) => {
-        console.error("Error connecting to MongoDB:", error);
+        logger.error({ err: error }, "Error connecting to MongoDB");
         throw error;
       });
   }
